@@ -1,4 +1,4 @@
-## Props drilling in React props drilling
+## Props drilling in React
 
 ```
 Prop drilling is the process in React app where props are passed from one part to another.
