@@ -1,23 +1,27 @@
-import logo from './logo.svg';
+import { useState } from 'react';
 import './App.css';
+import DisplayFishCount from './components/DisplayFishCount';
+import image from "./img/fi.jpg"; 
+import { countContext } from './Context'
+
 
 function App() {
+
+  const [fishcount, setFishCount] = useState(0);
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App" 
+    style={{ 
+      backgroundImage:`url(${image})` ,class:"center",
+      backgroundRepeat:"no-repeat",
+      backgroundSize:"contain", 
+      height:900,
+      width:900
+  }}>
+      <countContext.Provider value={{fishcount, setFishCount}}> 
+        <DisplayFishCount />
+      </countContext.Provider>
     </div>
   );
 }
